@@ -156,13 +156,17 @@ async function handleCommand(interaction) {
     const note = interaction.options.getString("note")?.trim() ?? null;
     const id = randomUUID().slice(0, 8);
     addPayment({ id, type: "invoice", createdBy: user.id, createdByTag: user.tag, targetUserId: target.id, targetUserTag: target.tag, product, amount, paypalLink, status: "pending", createdAt: new Date().toISOString() });
-    const embed = new EmbedBuilder().setTitle("🧾Checkout Created").setColor(0x000000)
+    const embed = new EmbedBuilder().setTitle(" Custom Checkout Created").setColor(0x000000)
       .addFields(
         { name: "Sales Agent", value: interaction.user.toString(), inline: true },
-        { name: "Description", value: product, inline: true },
-        { name: "Amount Due", value: `**$${amount.toFixed(2)}**`, inline: true },
+        
         { name: "Customer", value: `${target}`, inline: true },
-        {  name: "PayPal", value: paypalLink, inline: false },
+        
+        { name: "Amount Due", value: `**$${amount.toFixed(2)}**`, inline: true },
+        
+        { name: "Description", value: product, inline: true },
+        
+        { name: "PayPal", value: paypalLink, inline: false },
         ...(note ? [{ name: "Note", value: note, inline: false }] : []),
         { name: "Invoice ID", value: `\`${id}\``, inline: true },
       ).setFooter({

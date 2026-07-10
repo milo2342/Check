@@ -149,7 +149,7 @@ async function handleCommand(interaction) {
     return;
   }
 
-  if (commandName === "CheckoutCreate") {
+  if (commandName === "invoice") {
     const target = interaction.options.getUser("user", true);
     const product = interaction.options.getString("product", true).trim();
     const amount = interaction.options.getNumber("amount", true);

@@ -603,7 +603,7 @@ async function handleModal(interaction) {
   try {
     const creator = await client.users.fetch(payment.createdBy);
     await creator.send(
-      `📝 **Agreement Signed**\n**Invoice ID:** \`${paymentId}\`\n**Product:** ${payment.product}\n` +
+      ` # Agreement Signed**\n**Invoice ID:** \`${paymentId}\`\n**Product:** ${payment.product}\n` +
       `**Amount:** $${payment.amount.toFixed(2)}\n**Signed by:** ${legalName} (${interaction.user.tag})\n**Signed at:** ${ts} UTC`
     );
   } catch { /* DMs may be closed */ }

@@ -162,7 +162,7 @@ async function handleCommand(interaction) {
         { name: "Description", value: product, inline: true },
         { name: "Amount Due", value: `**$${amount.toFixed(2)}**`, inline: true },
         { name: "Customer", value: `${target}`, inline: true },
-        { name: "PayPal",value: `[Pay Invoice](${paypalLink})`,inline: false},
+        {  name: "PayPal", value: paypalLink, inline: false },
         ...(note ? [{ name: "Note", value: note, inline: false }] : []),
         { name: "Invoice ID", value: `\`${id}\``, inline: true },
       ).setFooter({ text: "Sign the no-chargeback agreement below before paying." }).setTimestamp();

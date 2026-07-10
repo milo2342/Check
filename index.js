@@ -165,10 +165,10 @@ async function handleCommand(interaction) {
         {  name: "PayPal", value: paypalLink, inline: false },
         ...(note ? [{ name: "Note", value: note, inline: false }] : []),
         { name: "Invoice ID", value: `\`${id}\``, inline: true },
-      )..setFooter({ text: "Sign the no-chargeback agreement below before paying." }).setTimestamp();
+      ).setFooter({ text: "Sign the no-chargeback agreement below before paying." }).setTimestamp();
     await interaction.reply({ content: `${target}`, embeds: [embed], components: [buildSignButton(id)] });
     return;
-  } 
+  }
 
   if (commandName === "subscription") {
     const target = interaction.options.getUser("user", true);

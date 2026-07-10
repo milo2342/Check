@@ -184,7 +184,7 @@ async function handleCommand(interaction) {
     const note = interaction.options.getString("note")?.trim() ?? null;
     const id = randomUUID().slice(0, 8);
     addPayment({ id, type: "subscription", createdBy: user.id, createdByTag: user.tag, targetUserId: target.id, targetUserTag: target.tag, product, amount, paypalLink, interval, status: "pending", createdAt: new Date().toISOString() });
-    const embed = new EmbedBuilder().setTitle("🔄 Subscription Invoice").setColor(0x9b59b6)
+    const embed = new EmbedBuilder().setTitle(" Subscription Invoice").setColor(0x9b59b6)
       .addFields(
         { name: "Plan", value: product, inline: true },
         { name: "Sales Agent", value: interaction.user.toString(), inline: true },
@@ -208,7 +208,7 @@ async function handleCommand(interaction) {
     const note = interaction.options.getString("note")?.trim() ?? null;
     const id = randomUUID().slice(0, 8);
     addPayment({ id, type: "debt", createdBy: user.id, createdByTag: user.tag, targetUserId: target.id, targetUserTag: target.tag, product, amount, paypalLink, dueDate, status: "pending", createdAt: new Date().toISOString() });
-    const embed = new EmbedBuilder().setTitle("⚠️ Outstanding Debt Notice").setColor(0xe74c3c)
+    const embed = new EmbedBuilder().setTitle("⚠️ Outstanding Debt Notice!!!").setColor(0xe74c3c)
       .addFields(
         { name: "Description", value: product, inline: true },
         { name: "Sales Agent", value: interaction.user.toString(), inline: true },
@@ -236,7 +236,7 @@ async function handleCommand(interaction) {
     const remaining = parseFloat((total - deposit).toFixed(2));
     const id = randomUUID().slice(0, 8);
     addPayment({ id, type: "paylater", createdBy: user.id, createdByTag: user.tag, targetUserId: target.id, targetUserTag: target.tag, product, amount: total, deposit, remaining, dueDate, paypalLink, status: "pending", createdAt: new Date().toISOString() });
-    const embed = new EmbedBuilder().setTitle("💳 Pay Now, Pay Later").setColor(0xe67e22)
+    const embed = new EmbedBuilder().setTitle(" Pay Now, Pay Later").setColor(0xe67e22)
       .addFields(
         { name: "Product / Service", value: product, inline: true },
         { name: "Sales Agent", value: interaction.user.toString(), inline: true },
@@ -265,7 +265,7 @@ async function handleCommand(interaction) {
     if (payment.status === "signed") { await interaction.reply({ content: `Invoice \`${invoiceId}\` has already been signed — it cannot be voided.`, ephemeral: true }); return; }
     updatePayment(invoiceId, { status: "voided" });
     await interaction.reply({
-      embeds: [new EmbedBuilder().setTitle("🚫 Invoice Voided").setColor(0x95a5a6)
+      embeds: [new EmbedBuilder().setTitle(" Invoice Voided").setColor(0x95a5a6)
         .addFields(
           { name: "Invoice ID", value: `\`${invoiceId}\``, inline: true },
           { name: "Product", value: payment.product, inline: true },
@@ -276,7 +276,7 @@ async function handleCommand(interaction) {
     });
     try {
       const target = await client.users.fetch(payment.targetUserId);
-      await target.send(`🚫 **Invoice Voided**\nInvoice \`${invoiceId}\` for **${payment.product}** ($${payment.amount.toFixed(2)}) has been voided.\n**Reason:** ${reason}`);
+      await target.send(` **Invoice Voided**\nInvoice \`${invoiceId}\` for **${payment.product}** ($${payment.amount.toFixed(2)}) has been voided.\n**Reason:** ${reason}`);
     } catch { /* DMs may be closed */ }
     return;
   }
@@ -285,9 +285,9 @@ async function handleCommand(interaction) {
     const invoiceId = interaction.options.getString("invoice_id", true).trim();
     const payment = getPayment(invoiceId);
     if (!payment) { await interaction.reply({ content: `No invoice found with ID \`${invoiceId}\`.`, ephemeral: true }); return; }
-    const statusEmoji = { pending: "⏳", signed: "✅", voided: "🚫" };
+    const statusEmoji = { pending: "", signed: "", voided: "" };
     const statusColor = { pending: 0xfee75c, signed: 0x57f287, voided: 0x95a5a6 };
-    const typeLabel = { invoice: "🧾 Invoice", subscription: "🔄 Subscription", debt: "⚠️ Debt", paylater: "💳 Pay Later" };
+    const typeLabel = { invoice: " Invoice", subscription: " Subscription", debt: " Debt", paylater: " Pay Later" };
     const embed = new EmbedBuilder()
       .setTitle(`${typeLabel[payment.type] ?? payment.type} — Status`)
       .setColor(statusColor[payment.status] ?? 0x5865f2)

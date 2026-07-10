@@ -168,7 +168,7 @@ async function handleCommand(interaction) {
       )..setFooter({ text: "Sign the no-chargeback agreement below before paying." }).setTimestamp();
     await interaction.reply({ content: `${target}`, embeds: [embed], components: [buildSignButton(id)] });
     return;
-  }
+  } 
 
   if (commandName === "subscription") {
     const target = interaction.options.getUser("user", true);

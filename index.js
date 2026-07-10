@@ -156,7 +156,7 @@ async function handleCommand(interaction) {
     const note = interaction.options.getString("note")?.trim() ?? null;
     const id = randomUUID().slice(0, 8);
     addPayment({ id, type: "invoice", createdBy: user.id, createdByTag: user.tag, targetUserId: target.id, targetUserTag: target.tag, product, amount, paypalLink, status: "pending", createdAt: new Date().toISOString() });
-    const embed = new EmbedBuilder().setTitle(" Custom Checkout Created").setColor(0x000000)
+    const embed = new EmbedBuilder().setTitle(" Custom Checkout Created").setColor(0x57f287)
       .addFields(
         { name: "Sales Agent", value: interaction.user.toString(), inline: true },
         

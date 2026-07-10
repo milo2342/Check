@@ -149,19 +149,20 @@ async function handleCommand(interaction) {
     return;
   }
 
-  if (commandName === "invoice") {
+  if (commandName === "CheckoutCreate") {
     const target = interaction.options.getUser("user", true);
     const product = interaction.options.getString("product", true).trim();
     const amount = interaction.options.getNumber("amount", true);
     const note = interaction.options.getString("note")?.trim() ?? null;
     const id = randomUUID().slice(0, 8);
     addPayment({ id, type: "invoice", createdBy: user.id, createdByTag: user.tag, targetUserId: target.id, targetUserTag: target.tag, product, amount, paypalLink, status: "pending", createdAt: new Date().toISOString() });
-    const embed = new EmbedBuilder().setTitle("🧾 Payment Invoice").setColor(0x57f287)
+    const embed = new EmbedBuilder().setTitle("🧾 Checkout Created").setColor(0x57f287)
       .addFields(
-        { name: "Product / Service", value: product, inline: true },
+        { name: "Sales Agent", value: interaction.user.toString(), inline: true },
+        { name: "Description", value: product, inline: true },
         { name: "Amount Due", value: `**$${amount.toFixed(2)}**`, inline: true },
-        { name: "Billed To", value: `${target}`, inline: true },
-        { name: "PayPal", value: paypalLink, inline: false },
+        { name: "Customer", value: `${target}`, inline: true },
+        { name: "PayPal",value: `[Pay Invoice](${paypalLink})`,inline: false},
         ...(note ? [{ name: "Note", value: note, inline: false }] : []),
         { name: "Invoice ID", value: `\`${id}\``, inline: true },
       ).setFooter({ text: "Sign the no-chargeback agreement below before paying." }).setTimestamp();

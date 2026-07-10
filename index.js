@@ -187,12 +187,15 @@ async function handleCommand(interaction) {
     const embed = new EmbedBuilder().setTitle("🔄 Subscription Invoice").setColor(0x9b59b6)
       .addFields(
         { name: "Plan", value: product, inline: true },
+        { name: "Sales Agent", value: interaction.user.toString(), inline: true },
         { name: "Amount", value: `**$${amount.toFixed(2)} / ${interval}**`, inline: true },
         { name: "Subscriber", value: `${target}`, inline: true },
         { name: "PayPal", value: paypalLink, inline: false },
         ...(note ? [{ name: "Note", value: note, inline: false }] : []),
         { name: "Invoice ID", value: `\`${id}\``, inline: true },
-      ).setFooter({ text: "Sign the agreement below to confirm your subscription." }).setTimestamp();
+      ).setFooter({
+  text: `Checkout created by ${interaction.user.tag} | Checkout ID: ${id} | Sign the no-chargeback agreement below before paying.`
+}).setTimestamp();
     await interaction.reply({ content: `${target}`, embeds: [embed], components: [buildSignButton(id)] });
     return;
   }
@@ -208,13 +211,16 @@ async function handleCommand(interaction) {
     const embed = new EmbedBuilder().setTitle("⚠️ Outstanding Debt Notice").setColor(0xe74c3c)
       .addFields(
         { name: "Description", value: product, inline: true },
+        { name: "Sales Agent", value: interaction.user.toString(), inline: true },
         { name: "Amount Owed", value: `**$${amount.toFixed(2)}**`, inline: true },
         { name: "Owed By", value: `${target}`, inline: true },
         { name: "Due Date", value: `**${dueDate}**`, inline: true },
         { name: "PayPal", value: paypalLink, inline: false },
         ...(note ? [{ name: "Note", value: note, inline: false }] : []),
         { name: "Reference ID", value: `\`${id}\``, inline: true },
-      ).setFooter({ text: "Sign the acknowledgement below to confirm this debt." }).setTimestamp();
+      ).setFooter({
+  text: `Checkout created by ${interaction.user.tag} | Checkout ID: ${id} | Sign the no-chargeback agreement below before paying.`
+}).setTimestamp();
     await interaction.reply({ content: `${target}`, embeds: [embed], components: [buildSignButton(id)] });
     return;
   }
@@ -233,6 +239,7 @@ async function handleCommand(interaction) {
     const embed = new EmbedBuilder().setTitle("💳 Pay Now, Pay Later").setColor(0xe67e22)
       .addFields(
         { name: "Product / Service", value: product, inline: true },
+        { name: "Sales Agent", value: interaction.user.toString(), inline: true },
         { name: "Total Price", value: `**$${total.toFixed(2)}**`, inline: true },
         { name: "Billed To", value: `${target}`, inline: true },
         { name: "Due Now (Deposit)", value: `**$${deposit.toFixed(2)}**`, inline: true },
@@ -241,7 +248,9 @@ async function handleCommand(interaction) {
         { name: "PayPal", value: paypalLink, inline: false },
         ...(note ? [{ name: "Note", value: note, inline: false }] : []),
         { name: "Invoice ID", value: `\`${id}\``, inline: true },
-      ).setFooter({ text: "Sign the agreement below — deposit is due immediately." }).setTimestamp();
+      ).setFooter({
+  text: `Checkout created by ${interaction.user.tag} | Checkout ID: ${id} | Sign the no-chargeback agreement below before paying.`
+}).setTimestamp();
     await interaction.reply({ content: `${target}`, embeds: [embed], components: [buildSignButton(id)] });
     return;
   }

@@ -160,7 +160,7 @@ async function handleCommand(interaction) {
       .addFields(
         { name: "Sales Agent", value: interaction.user.toString(), inline: true },
         
-        { name: "Customer", value: `${target}`, inline: true },
+        { name: "\nCustomer", value: `${target}`, inline: true },
         
         { name: "Amount Due", value: `**$${amount.toFixed(2)}**`, inline: true },
         

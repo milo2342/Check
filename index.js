@@ -61,7 +61,7 @@ const commands = [
   new SlashCommandBuilder().setName("invoice").setDescription("Send a payment invoice to a user.")
     .addUserOption((o) => o.setName("user").setDescription("The user to invoice.").setRequired(true))
     .addStringOption((o) => o.setName("product").setDescription("Product or service name.").setRequired(true))
-    .addNumberOption((o) => o.setName("amount").setDescription("Amount in USD.").setRequired(true).setMinValue(0.01))
+    .addNumberOption((o) => o.setName("amount").setDescription("Amount in GBP.").setRequired(true).setMinValue(0.01))
     .addStringOption((o) => o.setName("note").setDescription("Optional note.").setRequired(false))
     .setIntegrationTypes([0, 1]).setContexts([0, 1, 2]).toJSON(),
   new SlashCommandBuilder().setName("subscription").setDescription("Create a recurring subscription invoice.")
@@ -506,29 +506,29 @@ function buildFeaturesPages() {
       "*Everything Teo can build — all prices in USD.*\n" +
       "*Bundle for the best value.*\n\n" +
       "── Services ──────────────────────────\n" +
-      "  **Custom Discord Bot** · · · · · **$15**\n" +
+      "  **Custom Discord Bot** · · · · · **£15**\n" +
       "　　Setup & hosting, commands separate\n\n" +
-      "  **Ticket System** · · · · · · · · **$10**\n" +
+      "  **Ticket System** · · · · · · · · **£10**\n" +
       "　　Threads, transcripts & controls\n\n" +
-      "  **Verification** · · · · · · · · · **$10**\n" +
+      "  **Verification** · · · · · · · · · **£10**\n" +
       "　　Buttons, modals & auto-roles\n\n" +
-      " **Roster & Staff** · · · · · · · **$25**\n" +
+      " **Roster & Staff** · · · · · · · **£25**\n" +
       "　　Roster mgmt, logs & automation\n\n" +
-      "  **Leaderboards** · · · · · · · · **$10**\n" +
+      "  **Leaderboards** · · · · · · · · **£10**\n" +
       "　　Activity or custom rankings\n\n" +
       "── More Services ─────────────────────\n" +
-      "  **Economy System** · · · · · · · **$30**\n" +
+      "  **Economy System** · · · · · · · **£30**\n" +
       "　　Banking, jobs, shops & taxes\n\n" +
-      "  **Website / Store** · · · · · · **$50**\n" +
+      "  **Website / Store** · · · · · · **£50**\n" +
       "　　Designed, built & hosted\n\n" +
-      " **Notifications** · · · · · · · **$10**\n" +
+      " **Notifications** · · · · · · · **£10**\n" +
       "　　Event-driven auto-alerts\n\n" +
-      "  **UI Frameworks** · · · · · · · **$15**\n" +
+      "  **UI Frameworks** · · · · · · · **£15**\n" +
       " **Dashboards & component libs\n\n" +
-      "  **Custom Commands** · · · · **$5–$15 ea**\n" +
+      "  **Custom Commands** · · · · **$5–£15 ea**\n" +
       "　　Simple $5 · Complex $15\n\n" +
       "─────────────────────────────────────\n" +
-      "  **ALL FEATURES BUNDLE  ·  $145**\n" +
+      "  **ALL FEATURES BUNDLE  ·  £145**\n" +
       "　　*Save $30 — everything above in one package.*"
     )
     .setFooter({ text: "Page 4 / 4  ·  Titan Development" });

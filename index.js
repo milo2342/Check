@@ -118,9 +118,42 @@ client.once(Events.ClientReady, async (readyClient) => {
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
-  if (interaction.isChatInputCommand()) { await handleCommand(interaction); return; }
-  if (interaction.isButton()) { await handleButton(interaction); return; }
-  if (interaction.isModalSubmit()) { await handleModal(interaction); }
+  try {
+    if (interaction.isChatInputCommand()) {
+      await handleCommand(interaction);
+      return;
+    }
+
+    if (interaction.isButton()) {
+      await handleButton(interaction);
+      return;
+    }
+
+    if (interaction.isModalSubmit()) {
+      await handleModal(interaction);
+      return;
+    }
+  } catch (err) {
+    console.error(err);
+
+    try {
+      if (interaction.deferred) {
+        await interaction.editReply({
+          content: "❌ An unexpected error occurred."
+        });
+      } else if (interaction.replied) {
+        await interaction.followUp({
+          content: "❌ An unexpected error occurred.",
+          ephemeral: true
+        });
+      } else {
+        await interaction.reply({
+          content: "❌ An unexpected error occurred.",
+          ephemeral: true
+        });
+      }
+    } catch {}
+  }
 });
 
 async function handleCommand(interaction) {

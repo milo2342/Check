@@ -415,11 +415,12 @@ function buildFeaturesPages() {
     .setDescription(
       `*Everything Titan Development Can offer — organized by category.*\n*Commands marked* \`owner\` *are restricted.*\n\n${D}\n**🔨  Moderation**\n\`/ban\` · Ban with reason & purge\n\`/kick\` · Kick a member\n\`/mute\` · Timeout a member\n\`/unmute\` · Remove a timeout\n\`/warn\` · Formal warning + DM\n\`/purge\` · Bulk delete messages\n\`/ban-check\` · Check ban status\n\`/whois\` · Deep security lookup\n\`/global-ban\` · Ban across all servers  \`owner\`\n\`/global-unban\` · Unban across all servers  \`owner\`\n\n${D}\n**🎉  Community**\n\`/giveaway\` · Timed giveaway + winners\n\`/poll\` · Multi-option polls with live results\n\`/announce\` · Formatted announcements + role ping\n\`/verification\` · Member verification system\n\`/invite\` · Server invite embed\n\`/suggestion\` · Suggestions + vote buttons\n\`/confession\` · Anonymous confessions\n\`/serverlog\` · Full audit log system\n\n${D}\n**⚙️  Server Management**\n\`/lock\` \`/unlock\` · Lock or unlock a channel\n\`/slowmode\` · Set channel slowmode\n\`/nick\` · Change a member's nickname\n\`/embed\` · Create & send custom embeds\n\`/steal-emoji\` · Add emoji from URL or other servers\n\`/create-roles\` · Bulk create roles\n\`/create-channels\` · Bulk create channels\n\`/add-role\` · Assign a role\n\`/mass-move-roles\` · Move members between roles\n\`/move-channels\` · Reorganise channels\n\`/dev-setup\` · One-command full server setup\n\`/announcement-rebrand\` · Rebrand announcements\n\`/say\` · Send a message as the bot\n\n${D}\n**ℹ️  Info & Utilities**\n\`/ping\` · Bot latency check\n\`/server-info\` · Detailed server stats\n\`/role-info\` · Role breakdown & permissions\n\`/avatar\` · Full-size avatar\n\`/userinfo\` · Profile breakdown\n\`/developer\` · Developer info\n\`/features\` · This menu  \`owner\``
     )
-    .setFooter({ text: "Page 1 / 4  ·  Teo's Services" });
+    .setFooter({ text: "Page 1 / 4  ·  Titan Development" });
 
   const p2 = new EmbedBuilder()
-    .setTitle("TEO'S SERVICES  ·  FiveM RP Commands")
-    .setColor(0x2ecc71)
+    .setTitle("Titan Development  ·  FiveM RP Commands")
+    .setColor(0xff0000)
+    .setImage("https://imgur.com/a/T903bUy")
     .setDescription(
       "*All FiveM commands include interactive buttons —*\n" +
       "*staff can claim, respond & resolve right from Discord.*\n\n" +
@@ -458,11 +459,12 @@ function buildFeaturesPages() {
       "`incident` · Incident reports\n" +
       "`application` · Role applications"
     )
-    .setFooter({ text: "Page 2 / 4  ·  Teo's Services" });
+    .setFooter({ text: "Page 2 / 4  · Titan Development" });
 
   const p3 = new EmbedBuilder()
-    .setTitle("TEO'S SERVICES  ·  Troll & Future Commands")
-    .setColor(0xe74c3c)
+    .setTitle("Titan Development  ·  Troll & Future Commands")
+    .setColor(0xff0000)
+    .setImage("https://imgur.com/a/T903bUy")
     .setDescription(
       "*Troll commands are exclusive to your server only.*\n" +
       "*Future commands can be built on request.*\n\n" +
@@ -494,11 +496,12 @@ function buildFeaturesPages() {
       "`infractions` · Mod history per member\n" +
       "`afk` · AFK status tracking"
     )
-    .setFooter({ text: "Page 3 / 4  ·  Teo's Services" });
+    .setFooter({ text: "Page 3 / 4  ·  Titan Development" });
 
   const p4 = new EmbedBuilder()
-    .setTitle("TEO'S SERVICES  ·  Pricing")
-    .setColor(0xf1c40f)
+    .setTitle("Titan Development  ·  Pricing")
+    .setColor(0xff0000)
+    .setImage("https://imgur.com/a/T903bUy")
     .setDescription(
       "*Everything Teo can build — all prices in USD.*\n" +
       "*Bundle for the best value.*\n\n" +
@@ -528,7 +531,7 @@ function buildFeaturesPages() {
       "  **ALL FEATURES BUNDLE  ·  $145**\n" +
       "　　*Save $30 — everything above in one package.*"
     )
-    .setFooter({ text: "Page 4 / 4  ·  Teo's Services" });
+    .setFooter({ text: "Page 4 / 4  ·  Titan Development" });
 
   return [p1, p2, p3, p4];
 }

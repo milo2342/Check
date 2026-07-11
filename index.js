@@ -385,9 +385,23 @@ function buildSignButton(paymentId) {
 
 function buildFeaturesNav(page, total) {
   return new ActionRowBuilder().addComponents(
-    new ButtonBuilder().setCustomId(`features_nav_${page - 1}`).setLabel("◀  Previous").setStyle(ButtonStyle.Secondary).setDisabled(page <= 1),
-    new ButtonBuilder().setCustomId("features_nav_0").setLabel(`Page ${page} / ${total}`).setStyle(ButtonStyle.Primary).setDisabled(true),
-    new ButtonBuilder().setCustomId(`features_nav_${page + 1}`).setLabel("Next  ▶").setStyle(ButtonStyle.Secondary).setDisabled(page >= total),
+    new ButtonBuilder()
+      .setCustomId(`features_prev_${page}`)
+      .setLabel("◀ Previous")
+      .setStyle(ButtonStyle.Secondary)
+      .setDisabled(page === 1),
+
+    new ButtonBuilder()
+      .setCustomId(`features_page_${page}`)
+      .setLabel(`Page ${page} / ${total}`)
+      .setStyle(ButtonStyle.Primary)
+      .setDisabled(true),
+
+    new ButtonBuilder()
+      .setCustomId(`features_next_${page}`)
+      .setLabel("Next ▶")
+      .setStyle(ButtonStyle.Secondary)
+      .setDisabled(page === total),
   );
 }
 
@@ -519,14 +533,34 @@ function buildFeaturesPages() {
 }
 
 async function handleButton(interaction) {
-  if (interaction.customId.startsWith("features_nav_")) {
-    const page = parseInt(interaction.customId.slice("features_nav_".length));
-    const pages = buildFeaturesPages();
-    if (page < 1 || page > pages.length) return;
-    const row = buildFeaturesNav(page, pages.length);
-    await interaction.update({ embeds: [pages[page - 1]], components: [row] });
-    return;
+  if (
+  interaction.customId.startsWith("features_prev_") ||
+  interaction.customId.startsWith("features_next_")
+) {
+  const pages = buildFeaturesPages();
+
+  let page;
+
+  if (interaction.customId.startsWith("features_prev_")) {
+    page = parseInt(
+      interaction.customId.replace("features_prev_", "")
+    ) - 1;
+  } else {
+    page = parseInt(
+      interaction.customId.replace("features_next_", "")
+    ) + 1;
   }
+
+  if (page < 1) page = 1;
+  if (page > pages.length) page = pages.length;
+
+  await interaction.update({
+    embeds: [pages[page - 1]],
+    components: [buildFeaturesNav(page, pages.length)],
+  });
+
+  return;
+}
 
   if (!interaction.customId.startsWith("sign_")) return;
   const paymentId = interaction.customId.slice(5);

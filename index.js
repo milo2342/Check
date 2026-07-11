@@ -61,7 +61,7 @@ const commands = [
   new SlashCommandBuilder().setName("invoice").setDescription("Send a payment invoice to a user.")
     .addUserOption((o) => o.setName("user").setDescription("The user to invoice.").setRequired(true))
     .addStringOption((o) => o.setName("product").setDescription("Product or service name.").setRequired(true))
-    .addNumberOption((o) => o.setName("amount").setDescription("Amount in GBP.").setRequired(true).setMinValue(0.01))
+    .addNumberOption((o) => o.setName("amount").setDescription("Amount in USD.").setRequired(true).setMinValue(0.01))
     .addStringOption((o) => o.setName("note").setDescription("Optional note.").setRequired(false))
     .setIntegrationTypes([0, 1]).setContexts([0, 1, 2]).toJSON(),
   new SlashCommandBuilder().setName("subscription").setDescription("Create a recurring subscription invoice.")
@@ -503,7 +503,7 @@ function buildFeaturesPages() {
     .setColor("#000000")
     .setImage("https://cdn.discordapp.com/attachments/1525015180134580318/1525593844597526600/Banner.png")
     .setDescription(
-      "*Everything Teo can build — all prices in USD.*\n" +
+      "*Everything Teo can build — all prices in GBP.*\n" +
       "*Bundle for the best value.*\n\n" +
       "── Services ──────────────────────────\n" +
       "  **Custom Discord Bot** · · · · · **£15**\n" +
@@ -623,7 +623,7 @@ async function handleModal(interaction) {
   try {
     const creator = await client.users.fetch(payment.createdBy);
     await creator.send(
-      ` # Agreement Signed**\n**Invoice ID:** \`${paymentId}\`\n**Product:** ${payment.product}\n` +
+      ` # Agreement Signed\n**Invoice ID:** \`${paymentId}\`\n**Product:** ${payment.product}\n` +
       `**Amount:** $${payment.amount.toFixed(2)}\n**Signed by:** ${legalName} (${interaction.user.tag})\n**Signed at:** ${ts} UTC`
     );
   } catch { /* DMs may be closed */ }

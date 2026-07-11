@@ -365,54 +365,7 @@ function buildFeaturesPages() {
     .setTitle("TEO'S SERVICES  ·  General Bot Features")
     .setColor(0x5865f2)
     .setDescription(
-      "*Everything this bot can offer — organized by category.*\n" +
-      "*Commands marked* `owner` *are restricted.*\n\n" +
-      `${D}\n` +
-      "**🔨  Moderation**\n" +
-      "`/ban` · Ban with reason & purge\n" +
-      "`/kick` · Kick a member\n" +
-      "`/mute` · Timeout a member\n" +
-      "`/unmute` · Remove a timeout\n" +
-      "`/warn` · Formal warning + DM\n" +
-      "`/purge` · Bulk delete messages\n" +
-      "`/ban-check` · Check ban status\n" +
-      "`/whois` · Deep security lookup\n" +
-      "`/global-ban` · Ban across all servers  `owner`\n" +
-      "`/global-unban` · Unban across all servers  `owner`\n\n" +
-      `${D}\n` +
-      "**🎉  Community**\n" +
-      "`/giveaway` · Timed giveaway + winners\n" +
-      "`/poll` · Multi-option polls with live results\n" +
-      "`/announce` · Formatted announcements + role ping\n" +
-      "`/verification` · Member verification system\n" +
-      "`/invite` · Server invite embed\n" +
-      "`/suggestion` · Suggestions + vote buttons\n" +
-      "`/confession` · Anonymous confessions\n" +
-      "`/serverlog` · Full audit log system\n\n" +
-      `${D}\n` +
-      "**⚙️  Server Management**\n" +
-      "`/lock` `/unlock` · Lock or unlock a channel\n" +
-      "`/slowmode` · Set channel slowmode\n" +
-      "`/nick` · Change a member's nickname\n" +
-      "`/embed` · Create & send custom embeds\n" +
-      "`/steal-emoji` · Add emoji from URL or other servers\n" +
-      "`/create-roles` · Bulk create roles\n" +
-      "`/create-channels` · Bulk create channels\n" +
-      "`/add-role` · Assign a role\n" +
-      "`/mass-move-roles` · Move members between roles\n" +
-      "`/move-channels` · Reorganise channels\n" +
-      "`/dev-setup` · One-command full server setup\n" +
-      "`/announcement-rebrand` · Rebrand announcements\n" +
-      "`/say` · Send a message as the bot\n\n" +
-      `${D}\n` +
-      "**ℹ️  Info & Utilities**\n" +
-      "`/ping` · Bot latency check\n" +
-      "`/server-info` · Detailed server stats\n" +
-      "`/role-info` · Role breakdown & permissions\n" +
-      "`/avatar` · Full-size avatar\n" +
-      "`/userinfo` · Profile breakdown\n" +
-      "`/developer` · Developer info\n" +
-      "`/features` · This menu  `owner`"
+      `*Everything this bot can offer — organized by category.*\n*Commands marked* \`owner\` *are restricted.*\n\n${D}\n**🔨  Moderation**\n\`/ban\` · Ban with reason & purge\n\`/kick\` · Kick a member\n\`/mute\` · Timeout a member\n\`/unmute\` · Remove a timeout\n\`/warn\` · Formal warning + DM\n\`/purge\` · Bulk delete messages\n\`/ban-check\` · Check ban status\n\`/whois\` · Deep security lookup\n\`/global-ban\` · Ban across all servers  \`owner\`\n\`/global-unban\` · Unban across all servers  \`owner\`\n\n${D}\n**🎉  Community**\n\`/giveaway\` · Timed giveaway + winners\n\`/poll\` · Multi-option polls with live results\n\`/announce\` · Formatted announcements + role ping\n\`/verification\` · Member verification system\n\`/invite\` · Server invite embed\n\`/suggestion\` · Suggestions + vote buttons\n\`/confession\` · Anonymous confessions\n\`/serverlog\` · Full audit log system\n\n${D}\n**⚙️  Server Management**\n\`/lock\` \`/unlock\` · Lock or unlock a channel\n\`/slowmode\` · Set channel slowmode\n\`/nick\` · Change a member's nickname\n\`/embed\` · Create & send custom embeds\n\`/steal-emoji\` · Add emoji from URL or other servers\n\`/create-roles\` · Bulk create roles\n\`/create-channels\` · Bulk create channels\n\`/add-role\` · Assign a role\n\`/mass-move-roles\` · Move members between roles\n\`/move-channels\` · Reorganise channels\n\`/dev-setup\` · One-command full server setup\n\`/announcement-rebrand\` · Rebrand announcements\n\`/say\` · Send a message as the bot\n\n${D}\n**ℹ️  Info & Utilities**\n\`/ping\` · Bot latency check\n\`/server-info\` · Detailed server stats\n\`/role-info\` · Role breakdown & permissions\n\`/avatar\` · Full-size avatar\n\`/userinfo\` · Profile breakdown\n\`/developer\` · Developer info\n\`/features\` · This menu  \`owner\``
     )
     .setFooter({ text: "Page 1 / 4  ·  Teo's Services" });
 

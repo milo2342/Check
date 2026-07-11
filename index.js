@@ -159,17 +159,11 @@ async function handleCommand(interaction) {
     const embed = new EmbedBuilder().setTitle(" Custom Checkout Created").setColor(0x57f287)
       .addFields(
         { name: "Sales Agent", value: interaction.user.toString(), inline: true },
-        
-        
-        
         { name: "Customer", value: `${target}`, inline: true },
-        
         { name: "Amount Due", value: `**$${amount.toFixed(2)}**`, inline: true },
-        
         { name: "Description", value: product, inline: true },
-        
         { name: "PayPal", value: paypalLink, inline: false },
-        ...(note ? [{ name: "Note", value: note, inline: false }] : []),
+...(note ? [{ name: "Note", value: note, inline: false }] : []),
         { name: "Invoice ID", value: `\`${id}\``, inline: true },
       ).setFooter({
   text: `Checkout created by ${interaction.user.tag} | Checkout ID: ${id} | Sign the no-chargeback agreement below before paying.`

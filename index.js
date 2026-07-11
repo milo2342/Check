@@ -409,7 +409,7 @@ function buildFeaturesPages() {
   const D = "─────────────────────────────────";
 
   const p1 = new EmbedBuilder()
-    .setTitle("# Titan Development  ·  Services and what we can do")
+    .setTitle("Titan Development  ·  Services and what we can do")
     .setColor("#000000")
     .setImage("https://cdn.discordapp.com/attachments/1525015180134580318/1525593844597526600/Banner.png")
     .setDescription(
